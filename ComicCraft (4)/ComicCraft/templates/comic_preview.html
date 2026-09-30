@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}ComicCraft — Preview{% endblock %}
+{% block content %}
+<div class="preview-head">
+  <div><p class="eyebrow">YOUR COMIC</p><h1>Five panels, one adventure.</h1></div>
+  <a class="secondary button" href="/">Create another</a>
+</div>
+<div class="comic-grid">
+{% for panel in layout %}
+  <article class="panel-card">
+    <div class="panel-number">PANEL {{ panel.panel_number }}</div>
+    <h2>{{ panel.title }}</h2>
+    <img src="/panels/{{ panel.image_filename }}" alt="Comic panel {{ panel.panel_number }}">
+    <p class="scene">{{ panel.scene_description }}</p>
+    {% if panel.caption %}<p><strong>Caption:</strong> {{ panel.caption }}</p>{% endif %}
+    {% if panel.narration %}<p><strong>Narration:</strong> {{ panel.narration }}</p>{% endif %}
+    {% for line in panel.dialogue %}<p class="dialogue">{{ line }}</p>{% endfor %}
+    <details><summary>Image prompt</summary><p>{{ panel.image_prompt }}</p></details>
+  </article>
+{% endfor %}
+</div>
+<div class="export-bar">
+  <div><strong>Your PDF is ready.</strong><span>One page per comic panel.</span></div>
+  <a class="primary button" href="/export/{{ pdf_path.split('/')[-1] }}" download>⬇ Download Your Comic as PDF</a>
+</div>
+{% endblock %}

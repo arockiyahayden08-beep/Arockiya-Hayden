@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}ComicCraft — Image Test{% endblock %}
+{% block content %}
+<section class="card image-result">
+  <p class="eyebrow">IMAGE TEST</p>
+  <h1>Cartoon image generated</h1>
+  <img src="{{ image_url }}" alt="Generated cartoon test">
+  <p>{{ prompt }}</p>
+  <a class="secondary button" href="/">Back to ComicCraft</a>
+</section>
+{% endblock %}

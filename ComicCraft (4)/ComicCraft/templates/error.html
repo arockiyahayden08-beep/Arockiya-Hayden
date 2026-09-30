@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}ComicCraft — Error{% endblock %}
+{% block content %}
+<section class="card error-box">
+  <p class="eyebrow">GENERATION ERROR</p>
+  <h1>Something interrupted the comic workflow.</h1>
+  <pre>{{ error }}</pre>
+  <a class="primary button" href="/">Return to ComicCraft</a>
+</section>
+{% endblock %}
